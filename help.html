@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Files Index</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            margin: 0;
+            padding: 2rem;
+        }
+        h1 {
+            color: #58a6ff;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            color: #58a6ff;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            border-radius: 6px;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #30363d;
+            border-color: #8b949e;
+            color: #79c0ff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Help Files Directory</h1>
+        <p style="text-align: center; color: #8b949e;">Quick access buttons for /help.txt through /help200.txt</p>
+        
+        <div class="grid" id="button-container">
+            <!-- Buttons will be dynamically generated here -->
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('button-container');
+
+        // Generate button for /help.txt first
+        const baseBtn = document.createElement('a');
+        baseBtn.className = 'btn';
+        baseBtn.href = '/help.txt';
+        baseBtn.innerText = 'help.txt';
+        container.appendChild(baseBtn);
+
+        // Generate buttons for help1.txt through help200.txt
+        for (let i = 1; i <= 200; i++) {
+            const btn = document.createElement('a');
+            btn.className = 'btn';
+            btn.href = `/help${i}.txt`;
+            btn.innerText = `help${i}.txt`;
+            container.appendChild(btn);
+        }
+    </script>
+
+</body>
+</html>
